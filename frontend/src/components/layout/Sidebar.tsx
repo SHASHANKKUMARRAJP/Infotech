@@ -31,17 +31,16 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileMenuOpen, setMobileMenuO
         onClick={() => setMobileMenuOpen(false)}
       />
 
-      {/* Floating Island Sidebar */}
+      {/* Seamless Sidebar */}
       <div 
         className={`
           fixed lg:static inset-y-0 left-0 z-50 w-72 transform transition-transform duration-300 ease-in-out lg:translate-x-0
-          bg-black/20 backdrop-blur-3xl border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] lg:rounded-[2rem] 
-          flex flex-col h-full
+          bg-black/40 backdrop-blur-2xl
+          flex flex-col
           ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}
         `}
       >
-        {/* Subtle inner highlight */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
+
 
         <div className="flex items-center justify-between h-16 px-6 border-b border-white/5 bg-white/[0.02]">
           <div className="flex items-center gap-3">
@@ -55,8 +54,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileMenuOpen, setMobileMenuO
           </button>
         </div>
 
-        <nav className="px-3 py-6 space-y-1 overflow-y-auto h-[calc(100vh-4rem)]">
-          <div className="px-3 mb-2 text-xs font-semibold text-zinc-500 uppercase tracking-wider">Overview</div>
+        <nav className="flex-1 px-4 py-8 space-y-2 overflow-y-auto hide-scrollbar">
+          <div className="px-3 mb-4 text-xs font-bold text-zinc-500 uppercase tracking-widest">Overview</div>
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = location.pathname.startsWith(item.to);
@@ -66,9 +65,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileMenuOpen, setMobileMenuO
                 to={item.to}
                 onClick={toggle}
                 className={({ isActive }) => 
-                  `group relative flex items-center px-4 py-3 text-sm font-medium rounded-xl transition-all duration-300 overflow-hidden ${
+                  `group relative flex items-center px-4 py-3.5 text-sm font-semibold rounded-2xl transition-all duration-300 overflow-hidden ${
                     isActive 
-                      ? 'text-white shadow-[0_0_20px_rgba(79,70,229,0.15)] bg-white/10 border border-white/10' 
+                      ? 'text-white shadow-[0_0_30px_rgba(79,70,229,0.15)] bg-white/10 border border-white/10' 
                       : 'text-zinc-400 hover:bg-white/5 hover:text-white border border-transparent'
                   }`
                 }
@@ -81,8 +80,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileMenuOpen, setMobileMenuO
                 {/* Hover Glow */}
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
 
-                <Icon className={`w-5 h-5 mr-3 flex-shrink-0 relative z-10 transition-colors duration-300 ${isActive ? 'text-brand-400' : 'text-zinc-500 group-hover:text-zinc-300'}`} />
-                <span className="relative z-10">{item.label}</span>
+                <Icon className={`w-5 h-5 mr-3 flex-shrink-0 relative z-10 transition-colors duration-300 ${isActive ? 'text-brand-400 drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]' : 'text-zinc-500 group-hover:text-zinc-300'}`} />
+                <span className="relative z-10 tracking-wide">{item.label}</span>
               </NavLink>
             );
           })}

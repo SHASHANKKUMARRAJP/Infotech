@@ -111,7 +111,7 @@ export const Dashboard: React.FC = () => {
             <button 
               key={idx} 
               onClick={() => navigate(stat.path!)}
-              className={`relative text-left bg-[#080808]/80 backdrop-blur-2xl border border-white/5 rounded-[2rem] p-8 overflow-hidden group transition-all duration-700 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)]`}
+              className={`relative text-left bg-[#0a0a0a]/90 backdrop-blur-3xl border border-white/5 rounded-3xl p-8 overflow-hidden group transition-all duration-700 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)]`}
               style={{ transitionDelay: `${300 + idx * 150}ms` }}
             >
               {/* Hover Glow */}
@@ -126,7 +126,7 @@ export const Dashboard: React.FC = () => {
           ) : (
             <div 
               key={idx} 
-              className={`relative bg-[#080808]/80 backdrop-blur-2xl border border-white/5 rounded-[2rem] p-8 overflow-hidden transition-all duration-700 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+              className={`relative bg-[#0a0a0a]/90 backdrop-blur-3xl border border-white/5 rounded-3xl p-8 overflow-hidden transition-all duration-700 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
               style={{ transitionDelay: `${300 + idx * 150}ms` }}
             >
               {CardContent}
@@ -138,9 +138,10 @@ export const Dashboard: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* Luxury Analytics Card */}
-        <div className={`lg:col-span-2 bg-[#080808]/80 backdrop-blur-2xl border border-white/5 rounded-[2rem] p-8 sm:p-10 min-h-[450px] flex flex-col relative overflow-hidden transition-all duration-1000 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '700ms' }}>
+        <div className={`lg:col-span-2 bg-[#0a0a0a]/90 backdrop-blur-3xl border border-white/5 rounded-3xl p-8 sm:p-10 min-h-[450px] flex flex-col relative overflow-hidden transition-all duration-1000 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '700ms' }}>
           {/* Ambient Glow */}
-          <div className="absolute top-[-30%] left-[-10%] w-[60%] h-[60%] rounded-full bg-amber-500/5 blur-[100px] pointer-events-none" />
+          <div className="absolute -top-[40%] -left-[20%] w-[80%] h-[80%] rounded-full bg-brand-500/10 blur-[120px] pointer-events-none" />
+          <div className="absolute -bottom-[40%] -right-[20%] w-[80%] h-[80%] rounded-full bg-purple-500/10 blur-[120px] pointer-events-none" />
           
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-16 relative z-10 gap-4">
             <div>
@@ -188,25 +189,29 @@ export const Dashboard: React.FC = () => {
                   <div className="absolute inset-0 bg-amber-500 blur-xl opacity-0 group-hover:opacity-30 transition-opacity"></div>
                   
                   {/* Main Bar body */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-zinc-800 to-zinc-600 rounded-t-xl group-hover:from-[#222] group-hover:via-amber-900/40 group-hover:to-amber-400/80 transition-all duration-300 border border-white/5 border-b-0">
+                  {/* Area Chart Gradient body */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-900/10 via-brand-600/30 to-brand-400/80 rounded-t-xl transition-all duration-300 border border-brand-400/20 border-b-0 group-hover:via-brand-500/50 group-hover:to-brand-300/90 shadow-[inset_0_1px_10px_rgba(255,255,255,0.2)]">
                     {/* Glossy reflection line */}
-                    <div className="absolute top-0 left-0 right-0 h-full w-1/3 bg-gradient-to-r from-white/10 to-transparent rounded-tl-xl mix-blend-overlay"></div>
+                    <div className="absolute top-0 left-0 right-0 h-full w-1/3 bg-gradient-to-r from-white/20 to-transparent rounded-tl-xl mix-blend-overlay"></div>
                   </div>
                   
                   {/* Top cap */}
-                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-white/20 rounded-t-xl group-hover:bg-amber-300 transition-colors shadow-[0_0_10px_rgba(255,255,255,0.5)] group-hover:shadow-[0_0_15px_rgba(251,191,36,0.8)]"></div>
+                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-white rounded-t-xl shadow-[0_0_15px_rgba(99,102,241,1)] group-hover:shadow-[0_0_25px_rgba(165,180,252,1)] transition-shadow"></div>
                 </div>
                 
-                <span className="absolute -bottom-10 text-sm tracking-wider text-zinc-500 font-medium group-hover:text-amber-200 transition-colors">
+                <span className="absolute -bottom-10 text-sm tracking-wider text-zinc-500 font-medium group-hover:text-brand-300 transition-colors">
                   {['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG'][idx]}
                 </span>
               </div>
             ))}
+            
+            {/* Fake Area Gradient connecting bars */}
+            <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-brand-600/5 to-transparent pointer-events-none mix-blend-screen" />
           </div>
         </div>
 
         {/* Luxury Activity Feed */}
-        <div className={`bg-[#080808]/80 backdrop-blur-2xl border border-white/5 rounded-[2rem] p-8 transition-all duration-1000 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '850ms' }}>
+        <div className={`bg-[#0a0a0a]/90 backdrop-blur-3xl border border-white/5 rounded-3xl p-8 transition-all duration-1000 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '850ms' }}>
           <div className="flex items-center space-x-4 mb-10 border-b border-white/5 pb-6">
             <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-zinc-800 to-[#111] border border-white/10 flex items-center justify-center shadow-inner">
               <Activity className="w-6 h-6 text-zinc-300" />
