@@ -33,7 +33,7 @@ export const CustomerForm: React.FC = () => {
           setFormData(res.data);
           setLoading(false);
         })
-        .catch(err => {
+        .catch(() => {
           toast.error('Failed to load customer');
           navigate('/customers');
         });

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Users, Package, FileText, TrendingUp, Activity, CheckCircle, Clock, ChevronRight, Star } from 'lucide-react';
+import { Users, Package, FileText, Activity, CheckCircle, ChevronRight, Star } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import api from '../../lib/api';
 

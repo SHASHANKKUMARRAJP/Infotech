@@ -31,7 +31,7 @@ export const ProductForm: React.FC = () => {
           setFormData(res.data);
           setLoading(false);
         })
-        .catch(err => {
+        .catch(() => {
           toast.error('Failed to load product');
           navigate('/products');
         });
@@ -49,7 +49,7 @@ export const ProductForm: React.FC = () => {
       const payload = {
         ...formData,
         unit_price: parseFloat(formData.unit_price as string),
-        minimum_stock_quantity: parseInt(formData.minimum_stock_quantity as string || '0', 10),
+        minimum_stock_quantity: parseInt(String(formData.minimum_stock_quantity) || '0', 10),
       };
 
       if (isEdit) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Users, Package, Warehouse, FileText, X, Hexagon } from 'lucide-react';
+import { LayoutDashboard, Users, Warehouse, FileText, X, Hexagon } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
 interface SidebarProps {
