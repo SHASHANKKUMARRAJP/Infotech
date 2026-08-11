@@ -144,17 +144,17 @@ export const Landing: React.FC = () => {
 
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="flex-1 space-y-6">
-              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-sm font-medium border border-brand-500/20">
-                Step 1
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-sm font-medium border border-blue-500/20">
+                For Administrators
               </div>
-              <h3 className="text-3xl font-bold">Onboard Customers Instantly</h3>
+              <h3 className="text-3xl font-bold">Total Enterprise Control</h3>
               <p className="text-zinc-400 text-lg leading-relaxed">
-                Add leads and customers to your database in seconds. Track their business type, GST information, and contact details seamlessly. Search through thousands of records instantly.
+                Oversee your entire enterprise from a single pane of glass. Manage user roles, access permissions, and monitor high-level KPIs across all departments.
               </p>
               <ul className="space-y-3 pt-4">
-                {["Categorize as Retail or Wholesale", "Track active vs inactive leads", "Instant search indexing"].map((item, i) => (
+                {["Role-based access control", "Real-time enterprise analytics", "Audit logging & compliance"].map((item, i) => (
                   <li key={i} className="flex items-center text-zinc-300">
-                    <CheckCircle2 className="w-5 h-5 text-brand-500 mr-3" /> {item}
+                    <CheckCircle2 className="w-5 h-5 text-blue-500 mr-3" /> {item}
                   </li>
                 ))}
               </ul>
@@ -164,8 +164,64 @@ export const Landing: React.FC = () => {
                 className="aspect-video rounded-3xl border border-white/10 bg-[#0a0a0a]/80 p-2 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] relative group transform transition-transform duration-700 hover:rotate-x-0 hover:rotate-y-0"
                 style={{ transform: 'rotateY(-10deg) rotateX(5deg)', transformStyle: 'preserve-3d' }}
               >
-                <div className="absolute inset-0 bg-gradient-to-tr from-brand-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none"></div>
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80" alt="Team meeting" className="w-full h-full object-cover rounded-2xl opacity-80 brightness-110 contrast-125" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none"></div>
+                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1000&q=80" alt="Admin Dashboard" className="w-full h-full object-cover rounded-2xl opacity-80 brightness-110 contrast-125" />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
+            <div className="flex-1 space-y-6">
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-sm font-medium border border-brand-500/20">
+                For Sales Teams
+              </div>
+              <h3 className="text-3xl font-bold">Empower Your Sales Force</h3>
+              <p className="text-zinc-400 text-lg leading-relaxed">
+                Equip your sales team with a powerful CRM and instant order generation. Transform leads into confirmed sales seamlessly and track client interactions.
+              </p>
+              <ul className="space-y-3 pt-4">
+                {["Lead & active client tracking", "Instant Sales Challan creation", "On-the-go mobile access"].map((item, i) => (
+                  <li key={i} className="flex items-center text-zinc-300">
+                    <CheckCircle2 className="w-5 h-5 text-brand-500 mr-3" /> {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex-1 w-full perspective-1000" style={{ perspective: '2000px' }}>
+              <div 
+                className="aspect-video rounded-3xl border border-white/10 bg-[#0a0a0a]/80 p-2 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] relative group transform transition-transform duration-700 hover:rotate-x-0 hover:rotate-y-0"
+                style={{ transform: 'rotateY(10deg) rotateX(5deg)', transformStyle: 'preserve-3d' }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-tl from-brand-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none"></div>
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80" alt="Sales Team" className="w-full h-full object-cover rounded-2xl opacity-80 brightness-110 contrast-125" />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="flex-1 space-y-6">
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 text-sm font-medium border border-orange-500/20">
+                For Warehouse Ops
+              </div>
+              <h3 className="text-3xl font-bold">Streamline Inventory</h3>
+              <p className="text-zinc-400 text-lg leading-relaxed">
+                Eliminate stockouts and blind spots. Track inward and outward inventory movements with absolute precision across multiple warehouse locations.
+              </p>
+              <ul className="space-y-3 pt-4">
+                {["Automated low-stock alerts", "Multi-warehouse stock transfers", "Immutable movement logs"].map((item, i) => (
+                  <li key={i} className="flex items-center text-zinc-300">
+                    <CheckCircle2 className="w-5 h-5 text-orange-500 mr-3" /> {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex-1 w-full perspective-1000" style={{ perspective: '2000px' }}>
+              <div 
+                className="aspect-video rounded-3xl border border-white/10 bg-[#0a0a0a]/80 p-2 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] relative group transform transition-transform duration-700 hover:rotate-x-0 hover:rotate-y-0"
+                style={{ transform: 'rotateY(-10deg) rotateX(5deg)', transformStyle: 'preserve-3d' }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-tr from-orange-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none"></div>
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=80" alt="Warehouse operations" className="w-full h-full object-cover rounded-2xl opacity-80 brightness-110 contrast-125" />
               </div>
             </div>
           </div>
@@ -173,14 +229,14 @@ export const Landing: React.FC = () => {
           <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
             <div className="flex-1 space-y-6">
               <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-sm font-medium border border-purple-500/20">
-                Step 2
+                For Accounts & Finance
               </div>
-              <h3 className="text-3xl font-bold">Manage Infinite Inventory</h3>
+              <h3 className="text-3xl font-bold">Simplify Billing & Compliance</h3>
               <p className="text-zinc-400 text-lg leading-relaxed">
-                Add products, set minimum stock thresholds, and track every single movement. Our system logs every stock in and out, creating an immutable audit trail for your warehouse.
+                Keep your cash flow healthy and compliance in check. Generate invoices, track pending payments, and manage GST reporting effortlessly.
               </p>
               <ul className="space-y-3 pt-4">
-                {["Automated low stock alerts", "Detailed movement audit logs", "Multi-warehouse tracking"].map((item, i) => (
+                {["One-click invoice generation", "Pending payment tracking", "Automated GST reporting"].map((item, i) => (
                   <li key={i} className="flex items-center text-zinc-300">
                     <CheckCircle2 className="w-5 h-5 text-purple-500 mr-3" /> {item}
                   </li>
@@ -193,7 +249,7 @@ export const Landing: React.FC = () => {
                 style={{ transform: 'rotateY(10deg) rotateX(5deg)', transformStyle: 'preserve-3d' }}
               >
                 <div className="absolute inset-0 bg-gradient-to-tl from-purple-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none"></div>
-                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=80" alt="Warehouse operations" className="w-full h-full object-cover rounded-2xl opacity-80 brightness-110 contrast-125" />
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1000&q=80" alt="Finance invoice" className="w-full h-full object-cover rounded-2xl opacity-80 brightness-110 contrast-125" />
               </div>
             </div>
           </div>
