@@ -93,7 +93,7 @@ export const ChallanForm: React.FC = () => {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="card card-body">
+        <div className="card card-body relative z-20">
           <label className="block text-sm font-medium text-zinc-300 mb-1.5 ml-1">Select Customer *</label>
           <Select
             value={customerId}
@@ -106,7 +106,7 @@ export const ChallanForm: React.FC = () => {
           />
         </div>
 
-        <div className="card card-body">
+        <div className="card card-body relative z-10">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-lg font-medium text-zinc-100">Line Items</h3>
             <Button type="button" size="sm" onClick={handleAddItem} variant="secondary">
