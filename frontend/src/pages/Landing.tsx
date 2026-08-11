@@ -9,12 +9,16 @@ export const Landing: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white overflow-hidden selection:bg-brand-500/30 font-sans">
-      {/* Dynamic Background Glow */}
+    <div className="min-h-screen bg-[#050505] text-white overflow-hidden selection:bg-brand-500/30 font-sans relative">
+      {/* Dynamic Background Glow & Atmosphere */}
       <div className="fixed inset-0 z-0 flex justify-center items-center pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] rounded-full bg-brand-600/20 blur-[120px] animate-pulse-slow" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-purple-600/20 blur-[120px] animate-pulse-slow delay-1000" />
+        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] rounded-full bg-brand-600/20 blur-[120px] animate-pulse-slow mix-blend-screen" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-purple-600/20 blur-[120px] animate-pulse-slow delay-1000 mix-blend-screen" />
       </div>
+      
+      {/* Grid Overlay for Technical Vibe */}
+      <div className="fixed inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 z-0 mix-blend-overlay pointer-events-none"></div>
+      <div className="fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_20%,transparent_100%)] z-0 pointer-events-none"></div>
 
       <nav className="relative z-10 border-b border-white/5 bg-black/20 backdrop-blur-md sticky top-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -43,36 +47,41 @@ export const Landing: React.FC = () => {
       <main className="relative z-10 pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         {/* HERO SECTION */}
         <div className="text-center max-w-4xl mx-auto space-y-8">
-          <div className={`inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-sm text-zinc-300 transition-all duration-700 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <span className="flex h-2 w-2 rounded-full bg-brand-500 animate-pulse"></span>
-            <span>Infotech Enterprise 2.0 is now live</span>
+          <div className={`inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border border-brand-500/30 bg-brand-500/10 text-sm text-brand-200 transition-all duration-700 transform backdrop-blur-md shadow-[0_0_20px_rgba(79,70,229,0.2)] ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <span className="flex h-2 w-2 rounded-full bg-brand-400 animate-pulse shadow-[0_0_8px_rgba(99,102,241,0.8)]"></span>
+            <span className="font-medium tracking-wide uppercase text-xs">Infotech Enterprise 2.0 is now live</span>
           </div>
 
-          <h1 className={`text-5xl md:text-7xl font-bold font-display tracking-tighter leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60 transition-all duration-700 delay-100 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            Manage your business with absolute precision.
+          <h1 className={`text-5xl md:text-7xl font-bold font-display tracking-tighter leading-[1.1] transition-all duration-700 delay-100 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <span className="text-white">Manage your business with </span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-300 via-purple-400 to-brand-500 drop-shadow-sm">absolute precision.</span>
           </h1>
 
-          <p className={`text-xl text-zinc-400 leading-relaxed max-w-2xl mx-auto transition-all duration-700 delay-200 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <p className={`text-xl text-zinc-400 leading-relaxed max-w-2xl mx-auto transition-all duration-700 delay-200 transform font-light ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             The ultra-premium ERP and CRM platform designed for modern enterprises. Handle inventory, sales, and customers at the speed of thought.
           </p>
 
           <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 transition-all duration-700 delay-300 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <Link to="/login" className="w-full sm:w-auto px-8 py-3 rounded-full bg-brand-600 text-white font-semibold hover:bg-brand-500 transition-all flex items-center justify-center group shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:shadow-[0_0_30px_rgba(79,70,229,0.5)]">
+            <Link to="/login" className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-brand-600 to-purple-600 text-white font-semibold hover:from-brand-500 hover:to-purple-500 transition-all flex items-center justify-center group shadow-[0_10px_40px_-10px_rgba(79,70,229,0.8)] hover:shadow-[0_15px_50px_-10px_rgba(79,70,229,1)]">
               Start Building
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1.5 transition-transform" />
             </Link>
-            <a href="#features" className="w-full sm:w-auto px-8 py-3 rounded-full border border-white/10 bg-white/5 text-white font-medium hover:bg-white/10 transition-all text-center">
+            <a href="#features" className="w-full sm:w-auto px-8 py-3.5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl text-white font-medium hover:bg-white/10 transition-all text-center shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]">
               Explore Features
             </a>
           </div>
         </div>
 
-        {/* Hero Image Mockup */}
-        <div className={`mt-24 relative mx-auto max-w-5xl transition-all duration-1000 delay-500 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent z-10 bottom-0 top-1/2" />
-          <div className="rounded-xl overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(99,102,241,0.15)] relative group">
-            <div className="absolute inset-0 bg-gradient-to-tr from-brand-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2000&q=80" alt="Dashboard Interface Mockup" className="w-full h-auto object-cover opacity-80" />
+        {/* Hero Image Mockup with Perspective */}
+        <div className={`mt-24 relative mx-auto max-w-5xl transition-all duration-1000 delay-500 transform perspective-1000 ${mounted ? 'opacity-100 translate-y-0 rotate-x-0' : 'opacity-0 translate-y-16 rotate-x-12'}`} style={{ perspective: '2000px' }}>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent z-10 bottom-0 top-1/2 pointer-events-none" />
+          <div 
+            className="rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(99,102,241,0.2)] relative group"
+            style={{ transform: 'rotateX(5deg) scale(0.95)', transformStyle: 'preserve-3d', boxShadow: '0 50px 100px -20px rgba(0,0,0,1)' }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-tr from-brand-600/30 to-purple-600/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700 mix-blend-overlay z-20 pointer-events-none"></div>
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent z-20"></div>
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2000&q=80" alt="Dashboard Interface Mockup" className="w-full h-auto object-cover opacity-90 brightness-110 contrast-125" />
           </div>
         </div>
 
@@ -107,14 +116,20 @@ export const Landing: React.FC = () => {
             ].map((feature, i) => (
               <div 
                 key={i}
-                className="p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-300 hover:-translate-y-1 group cursor-pointer relative overflow-hidden"
+                className="p-8 rounded-[2rem] border border-white/5 bg-[#0a0a0a]/50 backdrop-blur-3xl hover:bg-[#111]/80 transition-all duration-500 hover:-translate-y-2 group cursor-pointer relative overflow-hidden shadow-[0_0_0_rgba(0,0,0,0)] hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.8)]"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-500/10 rounded-full blur-[50px] group-hover:bg-brand-500/20 transition-all duration-500" />
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-500/20 to-purple-500/20 flex items-center justify-center mb-6 border border-white/10">
-                  <feature.icon className="w-6 h-6 text-brand-400" />
+                {/* Interactive Hover Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-500/0 via-purple-500/0 to-brand-500/0 group-hover:from-brand-500/10 group-hover:via-purple-500/5 group-hover:to-transparent transition-all duration-700 opacity-0 group-hover:opacity-100" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-500/10 rounded-full blur-[50px] group-hover:bg-brand-500/30 group-hover:scale-150 transition-all duration-700" />
+                
+                {/* Inner Border Gloss */}
+                <div className="absolute inset-0 rounded-[2rem] border border-white/0 group-hover:border-white/10 transition-colors duration-500 pointer-events-none"></div>
+
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#111] to-[#222] flex items-center justify-center mb-8 border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] group-hover:shadow-[0_0_20px_rgba(99,102,241,0.2)] transition-all duration-500 relative z-10">
+                  <feature.icon className="w-7 h-7 text-brand-400 group-hover:text-brand-300 transition-colors duration-300" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">{feature.title}</h3>
-                <p className="text-zinc-400 leading-relaxed">{feature.desc}</p>
+                <h3 className="text-2xl font-bold font-display tracking-tight text-white mb-4 relative z-10">{feature.title}</h3>
+                <p className="text-zinc-400 leading-relaxed font-light relative z-10">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -144,9 +159,13 @@ export const Landing: React.FC = () => {
                 ))}
               </ul>
             </div>
-            <div className="flex-1 w-full">
-              <div className="aspect-video rounded-2xl border border-white/10 bg-white/5 p-2 overflow-hidden shadow-2xl">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80" alt="Team meeting" className="w-full h-full object-cover rounded-xl opacity-70" />
+            <div className="flex-1 w-full perspective-1000" style={{ perspective: '2000px' }}>
+              <div 
+                className="aspect-video rounded-3xl border border-white/10 bg-[#0a0a0a]/80 p-2 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] relative group transform transition-transform duration-700 hover:rotate-x-0 hover:rotate-y-0"
+                style={{ transform: 'rotateY(-10deg) rotateX(5deg)', transformStyle: 'preserve-3d' }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-tr from-brand-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none"></div>
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80" alt="Team meeting" className="w-full h-full object-cover rounded-2xl opacity-80 brightness-110 contrast-125" />
               </div>
             </div>
           </div>
@@ -168,9 +187,13 @@ export const Landing: React.FC = () => {
                 ))}
               </ul>
             </div>
-            <div className="flex-1 w-full">
-              <div className="aspect-video rounded-2xl border border-white/10 bg-white/5 p-2 overflow-hidden shadow-2xl">
-                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=80" alt="Warehouse operations" className="w-full h-full object-cover rounded-xl opacity-70" />
+            <div className="flex-1 w-full perspective-1000" style={{ perspective: '2000px' }}>
+              <div 
+                className="aspect-video rounded-3xl border border-white/10 bg-[#0a0a0a]/80 p-2 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] relative group transform transition-transform duration-700 hover:rotate-x-0 hover:rotate-y-0"
+                style={{ transform: 'rotateY(10deg) rotateX(5deg)', transformStyle: 'preserve-3d' }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-tl from-purple-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none"></div>
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=80" alt="Warehouse operations" className="w-full h-full object-cover rounded-2xl opacity-80 brightness-110 contrast-125" />
               </div>
             </div>
           </div>
