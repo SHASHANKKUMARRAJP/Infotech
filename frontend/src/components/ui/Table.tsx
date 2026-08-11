@@ -23,42 +23,43 @@ export function Table<T>({ columns, data, keyExtractor, emptyMessage = 'No data 
 
   return (
     <div className="w-full transition-all duration-500 animate-fade-in">
-      
-      {/* Header Row */}
-      <div className="hidden sm:flex items-center px-8 py-4 mb-4 bg-black/40 backdrop-blur-md rounded-2xl border border-white/5">
-        {columns.map((col, index) => (
-          <div
-            key={index}
-            className="flex-1 text-left text-xs font-bold text-zinc-400 uppercase tracking-widest"
-          >
-            {col.header}
-          </div>
-        ))}
-      </div>
+      <div className="bg-[#0a0a0a]/80 backdrop-blur-3xl border border-white/10 rounded-3xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.8)] overflow-hidden">
+        
+        {/* Header Row */}
+        <div className="hidden sm:flex items-center px-6 py-4 bg-black/40 border-b border-white/10 shadow-inner">
+          {columns.map((col, index) => (
+            <div
+              key={index}
+              className="flex-1 text-left text-xs font-bold text-zinc-500 uppercase tracking-widest"
+            >
+              {col.header}
+            </div>
+          ))}
+        </div>
 
-      {/* Data Rows */}
-      <div className="space-y-4">
-        {data.map((row, rowIndex) => (
-          <div 
-            key={keyExtractor(row)} 
-            className="group relative flex flex-col sm:flex-row sm:items-center px-8 py-5 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(79,70,229,0.15)] hover:border-brand-500/30 hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1 cursor-default"
-            style={{ animationDelay: `${rowIndex * 50}ms` }}
-          >
-            {/* Ambient hover glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-500/0 via-brand-500/5 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" />
-            
-            {columns.map((col, index) => (
-              <div key={index} className="flex-1 flex flex-col sm:block mb-3 sm:mb-0 relative z-10">
-                <span className="sm:hidden text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">{col.header}</span>
-                <div className="text-sm text-zinc-300 group-hover:text-white transition-colors duration-300">
-                  {typeof col.accessor === 'function'
-                    ? col.accessor(row)
-                    : String(row[col.accessor] as unknown)}
+        {/* Data Rows */}
+        <div className="divide-y divide-white/5">
+          {data.map((row, rowIndex) => (
+            <div 
+              key={keyExtractor(row)} 
+              className="group relative flex flex-col sm:flex-row sm:items-center px-6 py-3.5 hover:bg-white/[0.03] transition-colors duration-200"
+            >
+              {/* Subtle hover highlight */}
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-brand-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              
+              {columns.map((col, index) => (
+                <div key={index} className="flex-1 flex flex-col sm:block mb-2 sm:mb-0 relative z-10 px-2 sm:px-0">
+                  <span className="sm:hidden text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-0.5">{col.header}</span>
+                  <div className="text-sm text-zinc-300 group-hover:text-white transition-colors duration-200">
+                    {typeof col.accessor === 'function'
+                      ? col.accessor(row)
+                      : String(row[col.accessor] as unknown)}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        ))}
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
