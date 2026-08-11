@@ -53,7 +53,7 @@
   }
   
   .card {
-    @apply bg-[#080808]/80 backdrop-blur-2xl border border-white/5 shadow-2xl rounded-2xl overflow-hidden;
+    @apply bg-[#080808]/80 backdrop-blur-2xl border border-white/5 shadow-2xl rounded-2xl;
   }
 
   .card-header {
@@ -69,6 +69,6 @@
   }
 
   .table-container {
-    @apply bg-[#080808]/80 backdrop-blur-2xl border border-white/5 shadow-2xl rounded-2xl overflow-hidden;
+    @apply bg-[#080808]/80 backdrop-blur-2xl border border-white/5 shadow-2xl rounded-2xl;
   }
 }
