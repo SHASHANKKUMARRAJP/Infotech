@@ -12,7 +12,7 @@ export const TopNav: React.FC<TopNavProps> = ({ setMobileMenuOpen }) => {
   const navigate = useNavigate();
 
   return (
-    <header className="sticky top-0 z-30 bg-transparent border-b border-white/10">
+    <header className="sticky top-0 z-30 bg-[#020202]/70 backdrop-blur-xl border-b border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
       <div className="px-6 py-4 flex items-center justify-between sm:px-8">
         <div className="flex-1 flex items-center">
           <button

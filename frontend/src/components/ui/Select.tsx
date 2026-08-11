@@ -40,7 +40,7 @@ export const Select: React.FC<SelectProps> = ({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex justify-between items-center w-full px-4 py-3.5 bg-white/[0.03] border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-all duration-300 hover:bg-white/[0.05]"
+        className="flex justify-between items-center w-full px-4 py-3.5 bg-black/40 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-brand-500/60 focus:border-brand-500/60 transition-all duration-300 hover:bg-white/[0.05] hover:border-white/20 shadow-inner"
       >
         <span className={!selectedOption ? 'text-zinc-500' : 'text-white'}>
           {selectedOption ? selectedOption.label : placeholder}
@@ -56,7 +56,7 @@ export const Select: React.FC<SelectProps> = ({
       </button>
       
       {isOpen && (
-        <div className="absolute z-50 w-full mt-2 bg-[#111111] border border-white/10 rounded-xl shadow-2xl overflow-hidden py-2 animate-in fade-in slide-in-from-top-2 duration-200 max-h-60 overflow-y-auto">
+        <div className="absolute z-50 w-full mt-2 bg-[#0a0a0a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.6)] overflow-hidden py-2 animate-in fade-in zoom-in-95 slide-in-from-top-2 duration-200 max-h-60 overflow-y-auto">
           {options.map((option) => (
             <button
               key={option.value}
