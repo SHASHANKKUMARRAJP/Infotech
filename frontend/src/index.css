@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-zinc-100 bg-[#020202] selection:bg-brand-500/30 selection:text-white min-h-screen relative overflow-x-hidden;
+  }
+
+  /* The Animated Aura Background */
+  body::before, body::after, .aura-blob {
+    content: '';
+    position: fixed;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.6;
+    animation: floatBlob 25s infinite ease-in-out alternate;
+  }
+
+  body::before {
+    background: radial-gradient(circle, rgba(79,70,229,0.4) 0%, rgba(0,0,0,0) 70%);
+    top: -20%;
+    left: -10%;
+    animation-delay: 0s;
+  }
+
+  body::after {
+    background: radial-gradient(circle, rgba(168,85,247,0.4) 0%, rgba(0,0,0,0) 70%);
+    bottom: -20%;
+    right: -10%;
+    animation-delay: -5s;
+    animation-duration: 30s;
+  }
+}
+
+.aura-blob {
+  background: radial-gradient(circle, rgba(236,72,153,0.3) 0%, rgba(0,0,0,0) 70%);
+  top: 30%;
+  left: 40%;
+  animation-delay: -10s;
+  animation-duration: 35s;
+}
+
+@layer components {
+  .page-container {
+    @apply space-y-6 max-w-7xl mx-auto;
+  }
+  
+  .card {
+    @apply bg-[#080808]/80 backdrop-blur-2xl border border-white/5 shadow-2xl rounded-2xl overflow-hidden;
+  }
+
+  .card-header {
+    @apply px-6 py-5 border-b border-white/5;
+  }
+
+  .card-title {
+    @apply text-xl font-bold text-white;
+  }
+
+  .card-body {
+    @apply p-6;
+  }
+
+  .table-container {
+    @apply bg-[#080808]/80 backdrop-blur-2xl border border-white/5 shadow-2xl rounded-2xl overflow-hidden;
+  }
+}
