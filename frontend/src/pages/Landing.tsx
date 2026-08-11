@@ -105,14 +105,12 @@ export const Landing: React.FC = () => {
             <p className="text-zinc-400 text-lg">We provide a comprehensive suite of tools designed specifically to handle complex business operations with absolute simplicity.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {[
-              { icon: Box, title: "Inventory Management", desc: "Track stock levels in real-time. Get automated low-stock alerts and comprehensive movement history logs." },
-              { icon: Users, title: "Customer CRM", desc: "Manage leads, active clients, and communication history in one unified interface." },
-              { icon: BarChart3, title: "Sales Challans", desc: "Generate, track, and manage sales challans instantly. Convert drafts to confirmed orders with one click." },
-              { icon: Zap, title: "Lightning Fast", desc: "Built on modern edge architecture ensuring sub-second response times for all critical operations." },
-              { icon: Shield, title: "Enterprise Security", desc: "Bank-level encryption and role-based access controls to keep your proprietary business data completely safe." },
-              { icon: Activity, title: "Real-time Analytics", desc: "Monitor your KPIs, revenue growth, and sales metrics instantly with our dynamic dashboard." }
+              { icon: Shield, title: "Administrator Controls", desc: "Complete oversight of the system. Manage permissions, audit logs, and enterprise-level analytics from a central command center." },
+              { icon: Users, title: "Sales & CRM", desc: "Track leads, manage active clients, and instantly generate sales challans on the go with real-time sync." },
+              { icon: Box, title: "Warehouse Operations", desc: "Multi-warehouse tracking, automated low-stock alerts, and immutable logs for every stock inward and outward movement." },
+              { icon: BarChart3, title: "Accounts & Finance", desc: "Streamline your billing process. Track pending payments and generate automated GST reports in one click." }
             ].map((feature, i) => (
               <div 
                 key={i}
