@@ -7,6 +7,7 @@ interface User {
   role: 'ADMIN' | 'SALES' | 'WAREHOUSE' | 'ACCOUNTS';
   first_name: string;
   last_name: string;
+  profile_picture?: string;
 }
 
 interface AuthContextType {

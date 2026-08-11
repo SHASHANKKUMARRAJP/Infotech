@@ -41,7 +41,8 @@ router.post('/login', async (req, res) => {
         email: user.email,
         role: user.role,
         first_name: user.first_name,
-        last_name: user.last_name
+        last_name: user.last_name,
+        profile_picture: user.profile_picture
       }
     });
   } catch (error) {
@@ -53,7 +54,7 @@ router.post('/login', async (req, res) => {
 // POST /api/auth/register
 router.post('/register', async (req, res) => {
   try {
-    const { email, password, first_name, last_name, role = 'SALES' } = req.body;
+    const { email, password, first_name, last_name, role = 'SALES', profile_picture } = req.body;
 
     if (!email || !password || !first_name || !last_name) {
       return res.status(400).json({ error: 'All fields are required' });
@@ -68,9 +69,9 @@ router.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const result = await query(
-      `INSERT INTO users (email, password_hash, role, first_name, last_name) 
-       VALUES ($1, $2, $3, $4, $5) RETURNING id, email, role, first_name, last_name`,
-      [email, hashedPassword, role, first_name, last_name]
+      `INSERT INTO users (email, password_hash, role, first_name, last_name, profile_picture) 
+       VALUES ($1, $2, $3, $4, $5, $6) RETURNING id, email, role, first_name, last_name, profile_picture`,
+      [email, hashedPassword, role, first_name, last_name, profile_picture]
     );
 
     const user = result.rows[0];
@@ -92,7 +93,7 @@ router.post('/register', async (req, res) => {
 router.get('/me', authenticateJWT, async (req: AuthRequest, res) => {
   try {
     const userId = req.user?.id;
-    const result = await query('SELECT id, email, role, first_name, last_name, created_at FROM users WHERE id = $1', [userId]);
+    const result = await query('SELECT id, email, role, first_name, last_name, profile_picture, created_at FROM users WHERE id = $1', [userId]);
     const user = result.rows[0];
 
     if (!user) {

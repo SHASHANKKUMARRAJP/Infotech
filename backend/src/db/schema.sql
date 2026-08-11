@@ -18,6 +18,7 @@ CREATE TABLE users (
     role user_role NOT NULL DEFAULT 'SALES',
     first_name VARCHAR(100),
     last_name VARCHAR(100),
+    profile_picture TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );

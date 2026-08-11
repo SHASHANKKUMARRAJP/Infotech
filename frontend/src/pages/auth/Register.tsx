@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import api from '../../lib/api';
 import toast from 'react-hot-toast';
-import { Hexagon, ArrowRight, Mail, Lock, ArrowLeft, Shield, User } from 'lucide-react';
+import { Hexagon, ArrowRight, Mail, Lock, ArrowLeft, Shield, User, Camera } from 'lucide-react';
 
 export const Register: React.FC = () => {
   const [firstName, setFirstName] = useState('');
@@ -13,6 +13,18 @@ export const Register: React.FC = () => {
   const [role, setRole] = useState('SALES');
   const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [profilePicture, setProfilePicture] = useState<string | null>(null);
+  
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfilePicture(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   
   const { login, user } = useAuth();
   const navigate = useNavigate();
@@ -50,7 +62,8 @@ export const Register: React.FC = () => {
         password, 
         first_name: firstName, 
         last_name: lastName,
-        role 
+        role,
+        profile_picture: profilePicture
       });
       login(res.data.token, res.data.user);
       toast.success('Account created successfully');
@@ -96,6 +109,28 @@ export const Register: React.FC = () => {
           
           <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
             
+            {/* Profile Picture Upload */}
+            <div className={`flex justify-center transition-all duration-700 delay-150 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+              <div className="relative group cursor-pointer">
+                <input 
+                  type="file" 
+                  accept="image/*"
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                  onChange={handleFileChange}
+                />
+                <div className="w-24 h-24 rounded-full border-2 border-dashed border-zinc-600 bg-white/[0.02] flex items-center justify-center overflow-hidden group-hover:border-brand-500 transition-colors">
+                  {profilePicture ? (
+                    <img src={profilePicture} alt="Profile preview" className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="flex flex-col items-center text-zinc-500 group-hover:text-brand-400 transition-colors">
+                      <Camera className="w-6 h-6 mb-1" />
+                      <span className="text-[10px] uppercase font-semibold tracking-wider">Upload</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+
             <div className="grid grid-cols-2 gap-4">
               <div className={`relative transition-all duration-700 delay-200 transform ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
                 <label className="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2 ml-1">First Name</label>
