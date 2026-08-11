@@ -36,7 +36,7 @@ export const Select: React.FC<SelectProps> = ({
   const selectedOption = options.find(opt => opt.value === value);
 
   return (
-    <div className={`relative z-50 ${className}`} ref={containerRef}>
+    <div className={`relative ${isOpen ? 'z-50' : 'z-10'} ${className}`} ref={containerRef}>
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
