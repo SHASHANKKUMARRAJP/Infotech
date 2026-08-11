@@ -36,7 +36,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileMenuOpen, setMobileMenuO
         className={`
           fixed lg:static inset-y-0 left-0 z-50 w-72 transform transition-transform duration-300 ease-in-out lg:translate-x-0
           bg-black/20 backdrop-blur-3xl border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] lg:rounded-[2rem] 
-          flex flex-col h-full lg:h-[calc(100vh-4rem)] my-0 lg:my-auto
+          flex flex-col h-full
           ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}
         `}
       >
