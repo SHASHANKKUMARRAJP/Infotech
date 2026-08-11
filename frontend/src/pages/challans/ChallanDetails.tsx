@@ -74,16 +74,15 @@ export const ChallanDetails: React.FC = () => {
     <div className="page-container">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-center space-x-4">
-          <Button variant="secondary" onClick={() => navigate('/challans')} className="p-2 text-zinc-500">
+          <Button variant="secondary" onClick={() => navigate('/challans')} className="p-2 text-zinc-400 hover:text-white bg-white/5 border-white/10">
             <ArrowLeft className="w-5 h-5" />
           </Button>
-          <h1 className="text-2xl font-semibold text-zinc-900">
+          <h1 className="text-2xl font-bold text-white font-display">
             Challan {challan.challan_number}
           </h1>
-          <span className={`px-3 py-1 inline-flex text-xs font-medium rounded-full border 
-            ${challan.status === 'CONFIRMED' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 
-              challan.status === 'DRAFT' ? 'bg-amber-50 text-amber-700 border-amber-200' : 
-              'bg-red-50 text-red-700 border-red-200'}`}>
+          <span className={`px-3 py-1 inline-flex text-xs font-medium rounded-full border ${challan.status === 'CONFIRMED' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20 shadow-[0_0_15px_rgba(52,211,153,0.15)]' : 
+              challan.status === 'DRAFT' ? 'bg-amber-500/10 text-amber-400 border-amber-500/20 shadow-[0_0_15px_rgba(251,191,36,0.15)]' : 
+              'bg-red-500/10 text-red-400 border-red-500/20'}`}>
             {challan.status}
           </span>
         </div>
@@ -102,32 +101,32 @@ export const ChallanDetails: React.FC = () => {
       </div>
 
       <div className="card">
-        <div className="card-header">
-          <h3 className="card-title">Order Information</h3>
+        <div className="card-header border-b border-white/10">
+          <h3 className="card-title font-display">Order Information</h3>
         </div>
-        <div className="card-body grid grid-cols-1 md:grid-cols-2 gap-6 bg-zinc-50/50">
+        <div className="card-body grid grid-cols-2 md:grid-cols-4 gap-6 bg-black/20">
           <div>
-            <p className="text-sm font-medium text-zinc-500">Customer</p>
-            <p className="mt-1 text-lg text-zinc-900 font-medium">{challan.customer_name}</p>
+            <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">Customer</p>
+            <p className="mt-1 text-lg text-white font-medium">{challan.customer_name}</p>
           </div>
           <div>
-            <p className="text-sm font-medium text-zinc-500">Issue Date</p>
-            <p className="mt-1 text-lg text-zinc-900">{new Date(challan.issue_date).toLocaleDateString()}</p>
+            <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">Issue Date</p>
+            <p className="mt-1 text-lg text-white">{new Date(challan.issue_date).toLocaleDateString()}</p>
           </div>
           <div>
-            <p className="text-sm font-medium text-zinc-500">Total Quantity</p>
-            <p className="mt-1 text-lg text-zinc-900">{challan.total_quantity} items</p>
+            <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">Total Quantity</p>
+            <p className="mt-1 text-lg text-white">{challan.total_quantity} items</p>
           </div>
           <div>
-            <p className="text-sm font-medium text-zinc-500">Total Amount</p>
-            <p className="mt-1 text-2xl font-semibold text-zinc-900">${Number(challan.total_amount).toFixed(2)}</p>
+            <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">Total Amount</p>
+            <p className="mt-1 text-2xl font-bold text-emerald-400 drop-shadow-[0_0_10px_rgba(52,211,153,0.3)]">${Number(challan.total_amount).toFixed(2)}</p>
           </div>
         </div>
       </div>
 
       <div className="card">
         <div className="card-header border-b-0">
-          <h3 className="card-title">Line Items</h3>
+          <h3 className="card-title font-display">Line Items</h3>
         </div>
         <Table 
           data={challan.items} 

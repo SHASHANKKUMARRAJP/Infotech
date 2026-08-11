@@ -93,10 +93,14 @@ export const ChallanForm: React.FC = () => {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="card card-body relative z-20">
-          <label className="block text-sm font-medium text-zinc-300 mb-1.5 ml-1">Select Customer *</label>
-          <Select
-            value={customerId}
+        <div className="card">
+          <div className="card-header border-b border-white/10">
+            <h3 className="card-title font-display">Customer Information</h3>
+          </div>
+          <div className="card-body relative z-20 bg-black/20">
+            <label className="block text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-2">Select Customer <span className="text-brand-500">*</span></label>
+            <Select
+              value={customerId}
             onChange={(val) => setCustomerId(val)}
             placeholder="-- Choose a customer --"
             options={customers.map((c: any) => ({
@@ -104,17 +108,18 @@ export const ChallanForm: React.FC = () => {
               label: `${c.name} (${c.email})`
             }))}
           />
+          </div>
         </div>
 
-        <div className="card card-body relative z-10">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-medium text-zinc-100">Line Items</h3>
-            <Button type="button" size="sm" onClick={handleAddItem} variant="secondary">
+        <div className="card">
+          <div className="card-header border-b border-white/10 flex justify-between items-center">
+            <h3 className="card-title font-display">Line Items</h3>
+            <Button type="button" size="sm" onClick={handleAddItem} variant="secondary" className="bg-white/5 border-white/10 text-white hover:bg-white/10 shadow-none">
               <Plus className="w-4 h-4 mr-2" /> Add Item
             </Button>
           </div>
 
-          <div className="space-y-4">
+          <div className="card-body bg-black/20 space-y-4">
             {items.map((item, index) => (
               <div key={index} className="flex items-center space-x-4">
                 <div className="flex-1">
