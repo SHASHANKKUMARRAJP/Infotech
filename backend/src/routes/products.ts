@@ -73,6 +73,10 @@ router.post('/', authorizeRole(['ADMIN', 'WAREHOUSE']), async (req, res) => {
       return res.status(400).json({ error: 'product_name, sku, and unit_price are required' });
     }
 
+    if (parseFloat(unit_price) < 0) {
+      return res.status(400).json({ error: 'Unit price cannot be negative' });
+    }
+
     const result = await query(
       `INSERT INTO products (product_name, sku, category, description, unit_price, minimum_stock_quantity, warehouse_location) 
        VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,

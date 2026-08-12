@@ -133,11 +133,11 @@ This project includes a `vercel.json` for easy deployment to Vercel, ensuring th
 - **Postman Collection:** Included in the root directory as `Infotech_API.postman_collection.json`.
 
 ### Test Login Credentials
-*(Note: Please ensure these users exist in your deployed database or adjust them to match your seeded data.)*
-- **Admin:** `admin@example.com` / `password123`
-- **Sales:** `sales@example.com` / `password123`
-- **Warehouse:** `warehouse@example.com` / `password123`
-- **Accounts:** `accounts@example.com` / `password123`
+*These users are pre-seeded in the database. You can also use the "Quick Login" dropdown on the login page.*
+- **Admin:** `admin@minierp.com` / `password123`
+- **Sales:** `sales@minierp.com` / `password123`
+- **Warehouse:** `warehouse@minierp.com` / `password123`
+- **Accounts:** `accounts@minierp.com` / `password123`
 
 ### Architecture Overview
 This project uses a decoupled Client-Server architecture:
@@ -146,7 +146,6 @@ This project uses a decoupled Client-Server architecture:
 - **Database:** PostgreSQL hosted on Supabase, managed and queried using the `pg` driver and Supabase JS client.
 
 ### Known Limitations / Incomplete Parts
-- **Error Handling:** Basic error handling is implemented; advanced centralized error handling and logging (e.g., Winston) are not fully robust.
 - **Rate Limiting:** No rate limiting or DDOS protection is currently configured on the API.
-- **Pagination:** List endpoints (e.g., fetching all customers or products) do not yet implement pagination, which could impact performance with large datasets.
 - **Testing:** Comprehensive unit and integration tests (e.g., Jest) are currently missing.
+- **File Uploads:** No file upload support for customer documents or profile pictures.

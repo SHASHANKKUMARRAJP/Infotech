@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Users, Warehouse, FileText, X, Hexagon } from 'lucide-react';
+import { LayoutDashboard, Users, Package, Warehouse, FileText, X, Hexagon } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
 interface SidebarProps {
@@ -17,6 +17,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileMenuOpen, setMobileMenuO
   const navItems = [
     { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard', roles: ['ADMIN', 'SALES', 'WAREHOUSE', 'ACCOUNTS'] },
     { to: '/customers', icon: Users, label: 'Customers', roles: ['ADMIN', 'SALES', 'ACCOUNTS'] },
+    { to: '/products', icon: Package, label: 'Products', roles: ['ADMIN', 'SALES', 'WAREHOUSE', 'ACCOUNTS'] },
     { to: '/inventory', icon: Warehouse, label: 'Inventory', roles: ['ADMIN', 'WAREHOUSE'] },
     { to: '/challans', icon: FileText, label: 'Sales Challans', roles: ['ADMIN', 'SALES', 'WAREHOUSE', 'ACCOUNTS'] },
   ].filter(item => user && item.roles.includes(user.role));

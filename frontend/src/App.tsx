@@ -9,6 +9,7 @@ import { Register } from './pages/auth/Register';
 import { Dashboard } from './pages/dashboard/Dashboard';
 import { CustomerList } from './pages/customers/CustomerList';
 import { CustomerForm } from './pages/customers/CustomerForm';
+import { CustomerDetail } from './pages/customers/CustomerDetail';
 import { ProductList } from './pages/products/ProductList';
 import { ProductForm } from './pages/products/ProductForm';
 import { InventoryMovements } from './pages/inventory/InventoryMovements';
@@ -32,6 +33,7 @@ function App() {
           <Route path="/customers" element={<ProtectedRoute allowedRoles={['ADMIN', 'SALES', 'ACCOUNTS']}><Outlet /></ProtectedRoute>}>
             <Route index element={<CustomerList />} />
             <Route path="new" element={<ProtectedRoute allowedRoles={['ADMIN', 'SALES']}><CustomerForm /></ProtectedRoute>} />
+            <Route path=":id" element={<CustomerDetail />} />
             <Route path=":id/edit" element={<ProtectedRoute allowedRoles={['ADMIN', 'SALES']}><CustomerForm /></ProtectedRoute>} />
           </Route>
 

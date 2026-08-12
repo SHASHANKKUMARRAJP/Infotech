@@ -34,6 +34,15 @@ app.get('/api/admin-only', authenticateJWT, authorizeRole(['ADMIN']), (req, res)
   res.json({ message: 'Welcome Admin!' });
 });
 
+// Global error-handling middleware (must be after all routes)
+app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+  console.error('Unhandled error:', err.stack || err.message || err);
+  const statusCode = err.statusCode || 500;
+  res.status(statusCode).json({
+    error: statusCode === 500 ? 'Internal server error' : err.message,
+  });
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

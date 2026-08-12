@@ -1,11 +1,12 @@
 -- seed.sql
 
--- Insert Users (Password: 'password123' hashed with bcrypt)
+-- Insert Users (Password: 'password123' hashed with bcrypt, 10 rounds)
+-- To regenerate: node -e "require('bcryptjs').hash('password123',10).then(console.log)"
 INSERT INTO users (id, email, password_hash, role, first_name, last_name) VALUES
-('11111111-1111-1111-1111-111111111111', 'admin@minierp.com', '$2a$10$wY.u18h1Z5F9pG.fR0xK0eG7.6X3sR.6f9Qz/R.1Wq.h9Z0.h.1Wq', 'ADMIN', 'Super', 'Admin'),
-('22222222-2222-2222-2222-222222222222', 'sales@minierp.com', '$2a$10$wY.u18h1Z5F9pG.fR0xK0eG7.6X3sR.6f9Qz/R.1Wq.h9Z0.h.1Wq', 'SALES', 'John', 'Doe'),
-('88888888-8888-8888-8888-888888888888', 'warehouse@minierp.com', '$2a$10$wY.u18h1Z5F9pG.fR0xK0eG7.6X3sR.6f9Qz/R.1Wq.h9Z0.h.1Wq', 'WAREHOUSE', 'Bob', 'Builder'),
-('99999999-9999-9999-9999-999999999999', 'accounts@minierp.com', '$2a$10$wY.u18h1Z5F9pG.fR0xK0eG7.6X3sR.6f9Qz/R.1Wq.h9Z0.h.1Wq', 'ACCOUNTS', 'Alice', 'Smith');
+('11111111-1111-1111-1111-111111111111', 'admin@minierp.com', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'ADMIN', 'Super', 'Admin'),
+('22222222-2222-2222-2222-222222222222', 'sales@minierp.com', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'SALES', 'John', 'Doe'),
+('88888888-8888-8888-8888-888888888888', 'warehouse@minierp.com', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'WAREHOUSE', 'Bob', 'Builder'),
+('99999999-9999-9999-9999-999999999999', 'accounts@minierp.com', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'ACCOUNTS', 'Alice', 'Smith');
 
 -- Insert Customers
 INSERT INTO customers (id, name, email, mobile, business_name, gst_number, customer_type, status, created_by) VALUES

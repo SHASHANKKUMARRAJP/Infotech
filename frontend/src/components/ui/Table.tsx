@@ -39,7 +39,7 @@ export function Table<T>({ columns, data, keyExtractor, emptyMessage = 'No data 
 
         {/* Data Rows */}
         <div className="divide-y divide-white/5">
-          {data.map((row, rowIndex) => (
+          {data.map((row) => (
             <div 
               key={keyExtractor(row)} 
               className="group relative flex flex-col sm:flex-row sm:items-center px-6 py-3.5 hover:bg-white/[0.03] transition-colors duration-200"

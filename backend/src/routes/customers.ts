@@ -82,6 +82,22 @@ router.post('/', authorizeRole(['ADMIN', 'SALES']), async (req: AuthRequest, res
       return res.status(400).json({ error: 'Customer name is required' });
     }
 
+    // Email format validation (if provided)
+    if (email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        return res.status(400).json({ error: 'Invalid email format' });
+      }
+    }
+
+    // Mobile format validation (if provided) — allows digits, spaces, dashes, parens, plus
+    if (mobile) {
+      const mobileRegex = /^[+]?[\d\s\-()]{7,20}$/;
+      if (!mobileRegex.test(mobile)) {
+        return res.status(400).json({ error: 'Invalid mobile number format' });
+      }
+    }
+
     const result = await query(
       `INSERT INTO customers (name, email, mobile, address, business_name, gst_number, customer_type, status, created_by) 
        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Activity, Shield, Zap, Box, Users, BarChart3, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Shield, Box, Users, BarChart3, CheckCircle2 } from 'lucide-react';
 
 export const Landing: React.FC = () => {
   const [mounted, setMounted] = useState(false);
