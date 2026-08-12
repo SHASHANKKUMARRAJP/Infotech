@@ -101,7 +101,7 @@ export const Dashboard: React.FC = () => {
               </div>
               
               <div>
-                <dt className="text-xs font-semibold text-zinc-500 tracking-[0.2em] uppercase mb-2">{stat.label}</dt>
+                <dt className="text-xs font-semibold text-zinc-400 tracking-[0.2em] uppercase mb-2">{stat.label}</dt>
                 <dd className="text-3xl font-bold font-display tracking-tight text-white group-hover:text-amber-100 transition-colors">{stat.value}</dd>
               </div>
             </div>
@@ -111,7 +111,7 @@ export const Dashboard: React.FC = () => {
             <button 
               key={idx} 
               onClick={() => navigate(stat.path!)}
-              className={`relative text-left bg-[#0a0a0a]/90 backdrop-blur-3xl border border-white/5 rounded-3xl p-8 overflow-hidden group transition-all duration-700 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)]`}
+              className={`relative text-left bg-white/[0.04] backdrop-blur-3xl border border-white/10 rounded-3xl p-8 overflow-hidden group transition-all duration-700 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)]`}
               style={{ transitionDelay: `${300 + idx * 150}ms` }}
             >
               {/* Hover Glow */}
@@ -126,7 +126,7 @@ export const Dashboard: React.FC = () => {
           ) : (
             <div 
               key={idx} 
-              className={`relative bg-[#0a0a0a]/90 backdrop-blur-3xl border border-white/5 rounded-3xl p-8 overflow-hidden transition-all duration-700 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+              className={`relative bg-white/[0.04] backdrop-blur-3xl border border-white/10 rounded-3xl p-8 overflow-hidden transition-all duration-700 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
               style={{ transitionDelay: `${300 + idx * 150}ms` }}
             >
               {CardContent}
@@ -138,7 +138,7 @@ export const Dashboard: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* Luxury Analytics Card */}
-        <div className={`lg:col-span-2 bg-[#0a0a0a]/90 backdrop-blur-3xl border border-white/5 rounded-3xl p-8 sm:p-10 min-h-[450px] flex flex-col relative overflow-hidden transition-all duration-1000 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '700ms' }}>
+        <div className={`lg:col-span-2 bg-white/[0.04] backdrop-blur-3xl border border-white/10 rounded-3xl p-8 sm:p-10 min-h-[450px] flex flex-col relative overflow-hidden transition-all duration-1000 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '700ms' }}>
           {/* Ambient Glow */}
           <div className="absolute -top-[40%] -left-[20%] w-[80%] h-[80%] rounded-full bg-brand-500/10 blur-[120px] pointer-events-none" />
           <div className="absolute -bottom-[40%] -right-[20%] w-[80%] h-[80%] rounded-full bg-purple-500/10 blur-[120px] pointer-events-none" />
@@ -211,7 +211,7 @@ export const Dashboard: React.FC = () => {
         </div>
 
         {/* Luxury Activity Feed */}
-        <div className={`bg-[#0a0a0a]/90 backdrop-blur-3xl border border-white/5 rounded-3xl p-8 transition-all duration-1000 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '850ms' }}>
+        <div className={`bg-white/[0.04] backdrop-blur-3xl border border-white/10 rounded-3xl p-8 transition-all duration-1000 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '850ms' }}>
           <div className="flex items-center space-x-4 mb-10 border-b border-white/5 pb-6">
             <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-zinc-800 to-[#111] border border-white/10 flex items-center justify-center shadow-inner">
               <Activity className="w-6 h-6 text-zinc-300" />

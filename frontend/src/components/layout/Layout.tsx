@@ -12,8 +12,8 @@ export const Layout: React.FC = () => {
       
       {/* Dynamic Animated Background Glows */}
       <div className="absolute inset-0 z-0 flex justify-center items-center pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-20%] w-[100%] h-[70%] rounded-full bg-brand-600/10 blur-[120px] animate-pulse-slow" />
-        <div className="absolute bottom-[-10%] right-[-20%] w-[100%] h-[70%] rounded-full bg-purple-600/10 blur-[120px] animate-pulse-slow delay-1000" />
+        <div className="absolute top-[-10%] left-[-20%] w-[100%] h-[70%] rounded-full bg-brand-600/20 blur-[120px] animate-pulse-slow" />
+        <div className="absolute bottom-[-10%] right-[-20%] w-[100%] h-[70%] rounded-full bg-purple-600/20 blur-[120px] animate-pulse-slow delay-1000" />
       </div>
       
       {/* Seamless Sidebar */}
@@ -23,7 +23,7 @@ export const Layout: React.FC = () => {
       />
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col min-w-0 bg-[#0a0a0a] border-l border-white/5 relative z-10 overflow-hidden">
+      <div className="flex-1 flex flex-col min-w-0 bg-[#0e0e0e] border-l border-white/5 relative z-10 overflow-hidden">
         
 
         <TopNav setMobileMenuOpen={setMobileMenuOpen} />
