@@ -12,11 +12,11 @@ This document outlines all the REST API endpoints available in the Mini ERP + CR
 
 ### `POST /api/auth/login`
 - **Description:** Authenticate a user and receive a JWT token.
-- **Body:** `{ "email": "admin@example.com", "password": "password123" }`
+- **Body:** `{ "email": "admin@minierp.com", "password": "password123" }`
 
 ### `POST /api/auth/register`
 - **Description:** Register a new user.
-- **Body:** `{ "email": "test@example.com", "password": "password123", "name": "Test User", "role": "SALES" }`
+- **Body:** `{ "email": "test@minierp.com", "password": "password123", "name": "Test User", "role": "SALES" }`
 
 ### `GET /api/auth/me`
 - **Description:** Get details of the currently authenticated user.
