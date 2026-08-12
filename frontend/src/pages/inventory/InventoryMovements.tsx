@@ -114,7 +114,7 @@ export const InventoryMovements: React.FC = () => {
         <img 
           src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=2000&q=80" 
           alt="Inventory Banner" 
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          className="absolute inset-0 w-full h-full object-cover opacity-65"
         />
         <div className="absolute inset-0 z-20 p-8 flex flex-col justify-center">
           <div className="flex items-center justify-between">

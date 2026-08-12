@@ -47,7 +47,7 @@ export const Dashboard: React.FC = () => {
           <img 
             src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2000&q=80" 
             alt="Corporate Tech Dashboard" 
-            className="w-full h-full object-cover opacity-20 mix-blend-luminosity animate-zoom-slow"
+            className="w-full h-full object-cover opacity-50 animate-zoom-slow"
           />
         </div>
 
