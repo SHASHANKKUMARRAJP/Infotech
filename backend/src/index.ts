@@ -25,6 +25,10 @@ app.use('/api/challans', challanRoutes);
 app.use('/api/users', usersRouter);
 app.use('/api/dashboard', dashboardRoutes);
 
+app.get('/', (req, res) => {
+  res.json({ message: 'Welcome to the InfoTech ERP + CRM API Portal.', health: '/health' });
+});
+
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
