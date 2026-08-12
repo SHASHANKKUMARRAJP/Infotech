@@ -69,7 +69,7 @@ export const ProductList: React.FC = () => {
         <img 
           src="https://images.unsplash.com/photo-1586528116311-ad8ed7c8d20f?auto=format&fit=crop&w=2000&q=80" 
           alt="Products Banner" 
-          className="absolute inset-0 w-full h-full object-cover opacity-65"
+          className="absolute inset-0 w-full h-full object-cover opacity-85"
         />
         <div className="absolute inset-0 z-20 p-8 flex flex-col justify-center">
           <div className="flex items-center justify-between">
